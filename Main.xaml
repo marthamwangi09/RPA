@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1169,3321" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1178,837" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -105,135 +105,188 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="840,3256" sap2010:WorkflowViewState.IdRef="Sequence_11">
+  <sap:WorkflowViewStateService.ViewState>
+    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="ShouldCollapseAll">True</x:Boolean>
+    </scg:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <Sequence sap:VirtualizedContainerService.HintSize="1188,692" sap2010:WorkflowViewState.IdRef="Sequence_11">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Agent Assistant Robot" sap:VirtualizedContainerService.HintSize="778,3145" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Parallel sap:VirtualizedContainerService.HintSize="1126,581" sap2010:WorkflowViewState.IdRef="Parallel_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="716,85" sap2010:WorkflowViewState.IdRef="MessageBox_7" Text="[&quot;Agent Ready. Please use ALT + s to trigget the Automation&quot;]" />
-      <ui:TriggerScope DisplayName="Monitor Agent Action" sap:VirtualizedContainerService.HintSize="716,2909" sap2010:WorkflowViewState.IdRef="TriggerScope_1" SchedulingMode="Sequential">
+      <ui:TriggerScope DisplayName="Trigger Scope" sap:VirtualizedContainerService.HintSize="502,534" sap2010:WorkflowViewState.IdRef="TriggerScope_2" SchedulingMode="Sequential">
         <ui:TriggerScope.Action>
           <ActivityAction x:TypeArguments="ui:EventInfoTriggerArgs">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="ui:EventInfoTriggerArgs" Name="args" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Event handler" sap:VirtualizedContainerService.HintSize="664,2576" sap2010:WorkflowViewState.IdRef="Sequence_2">
-              <Sequence.Variables>
-                <Variable x:TypeArguments="x:Boolean" Name="boolFileExists" />
-              </Sequence.Variables>
+            <Sequence sap:VirtualizedContainerService.HintSize="450,201" sap2010:WorkflowViewState.IdRef="Sequence_12">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[boolFileExists]" sap:VirtualizedContainerService.HintSize="602,115" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[Environment.CurrentDirectory+&quot;\Requests\Request.xlsx&quot;]" PathType="File" />
-              <If Condition="[boolFileExists]" sap:VirtualizedContainerService.HintSize="602,2310" sap2010:WorkflowViewState.IdRef="If_1">
-                <If.Then>
-                  <Sequence sap:VirtualizedContainerService.HintSize="568,1955" sap2010:WorkflowViewState.IdRef="Sequence_3">
-                    <Sequence.Variables>
-                      <Variable x:TypeArguments="x:String" Name="strContact" />
-                      <Variable x:TypeArguments="x:String" Name="strEmail" />
-                      <Variable x:TypeArguments="x:String" Name="strSubject" />
-                      <Variable x:TypeArguments="x:Boolean" Default="False" Name="boolTicketCreated" />
-                      <Variable x:TypeArguments="x:String" Name="strPhone" />
-                      <Variable x:TypeArguments="x:String" Name="strDescription" />
-                    </Sequence.Variables>
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="526,85" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;A request is availabe. We will promptly start to create&quot;]" />
-                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ReadRequests.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="526,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ReadRequests.xaml">
-                      <ui:InvokeWorkflowFile.Arguments>
-                        <InArgument x:TypeArguments="x:String" x:Key="RequestFilePath">[Environment.CurrentDirectory+"\Requests\Request.xlsx"]</InArgument>
-                        <OutArgument x:TypeArguments="x:String" x:Key="ContactName">[strContact]</OutArgument>
-                        <OutArgument x:TypeArguments="x:String" x:Key="Email">[strEmail]</OutArgument>
-                        <OutArgument x:TypeArguments="x:String" x:Key="Subject">[strSubject]</OutArgument>
-                        <OutArgument x:TypeArguments="x:String" x:Key="Phone">[strPhone]</OutArgument>
-                        <OutArgument x:TypeArguments="x:String" x:Key="Description">[strDescription]</OutArgument>
-                      </ui:InvokeWorkflowFile.Arguments>
-                    </ui:InvokeWorkflowFile>
-                    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="526,85" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="[&quot;The client &quot; + strContact + &quot; reachable on the email address &quot; + strEmail + &quot; needs help with &quot; + strSubject]" />
-                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SaaSAutomation.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="526,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="SaaSAutomation.xaml">
-                      <ui:InvokeWorkflowFile.Arguments>
-                        <InArgument x:TypeArguments="x:String" x:Key="ContactName">[strContact]</InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="Email">[strEmail]</InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="Subject">[strSubject]</InArgument>
-                        <OutArgument x:TypeArguments="x:Boolean" x:Key="Successful">[boolTicketCreated]</OutArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="Phone">[strPhone]</InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="Description">[strDescription]</InArgument>
-                      </ui:InvokeWorkflowFile.Arguments>
-                    </ui:InvokeWorkflowFile>
-                    <If Condition="[boolTicketCreated]" sap:VirtualizedContainerService.HintSize="526,1311" sap2010:WorkflowViewState.IdRef="If_2">
-                      <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="492,664" sap2010:WorkflowViewState.IdRef="Sequence_6">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <Sequence sap:VirtualizedContainerService.HintSize="450,576" sap2010:WorkflowViewState.IdRef="Sequence_8">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                            <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[Environment.CurrentDirectory+&quot;\Processed\Request_&quot;+Now.ToString(&quot;MM-dd-yyyy_hh_mm_ss&quot;)+&quot;.xlsx&quot;]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="388,159" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="[Environment.CurrentDirectory+&quot;\Requests\Request.xlsx&quot;]" />
-                            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="388,85" sap2010:WorkflowViewState.IdRef="MessageBox_5" Text="[&quot;Zoho Ticket Created and File Moved to the Processed Folder. Use ALT + S to check for new requests to process.&quot;]" />
-                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Zoho Ticket Created and File Moved to the Processed Folder. Use ALT + S to check for new requests to process.&quot;]" />
-                          </Sequence>
-                        </Sequence>
-                      </If.Then>
-                      <If.Else>
-                        <Sequence sap:VirtualizedContainerService.HintSize="492,465" sap2010:WorkflowViewState.IdRef="Sequence_7">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <Sequence sap:VirtualizedContainerService.HintSize="450,377" sap2010:WorkflowViewState.IdRef="Sequence_9">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="388,85" sap2010:WorkflowViewState.IdRef="MessageBox_6" Text="[&quot;Zoho Ticket not created and file is not processed yet. Please check the input request file and Use ALT+s to reprocess the same request&quot;]" />
-                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[&quot;Zoho Ticket not created and file is not processed yet. Please check the input request file and Use ALT+s to reprocess the same request&quot;]" />
-                          </Sequence>
-                        </Sequence>
-                      </If.Else>
-                    </If>
-                  </Sequence>
-                </If.Then>
-                <If.Else>
-                  <Sequence sap:VirtualizedContainerService.HintSize="376,173" sap2010:WorkflowViewState.IdRef="Sequence_4">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,85" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[&quot;Sorry, there are no requests to process&quot;]" />
-                  </Sequence>
-                </If.Else>
-              </If>
+              <TerminateWorkflow DisplayName="Terminate Workflow" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="TerminateWorkflow_1" Reason="Workflow Stopped Automation by using a hotkey">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </TerminateWorkflow>
             </Sequence>
           </ActivityAction>
         </ui:TriggerScope.Action>
         <ui:TriggerScope.Triggers>
           <scg:List x:TypeArguments="Activity" Capacity="4">
-            <ui:HotkeyTriggerV2 BlockEvent="False" DisplayName="Hotkey Trigger" Enabled="True" sap:VirtualizedContainerService.HintSize="680,105" sap2010:WorkflowViewState.IdRef="HotkeyTriggerV2_1" Key="s" KeyModifiers="Alt" SchedulingMode="Sequential" TriggerId="d4500251-b6f5-4370-91f9-b4ae6197216e" UseWindowsHotKey="False" />
+            <ui:HotkeyTriggerV2 BlockEvent="False" DisplayName="Hotkey Trigger" Enabled="True" sap:VirtualizedContainerService.HintSize="466,105" sap2010:WorkflowViewState.IdRef="HotkeyTriggerV2_2" Key="t" KeyModifiers="Ctrl" SchedulingMode="Sequential" TriggerId="b19680ae-a3f7-4e90-b8df-9033fcb5bcc8" UseWindowsHotKey="False">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:HotkeyTriggerV2>
           </scg:List>
         </ui:TriggerScope.Triggers>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsPinned">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
       </ui:TriggerScope>
-    </Sequence>
+      <Sequence DisplayName="Agent Assistant Robot" sap:VirtualizedContainerService.HintSize="450,534" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="716,85" sap2010:WorkflowViewState.IdRef="MessageBox_7" Text="[&quot;Agent Ready. Please use ALT + s to trigget the Automation&quot;]" />
+        <ui:TriggerScope DisplayName="Monitor Agent Action" sap:VirtualizedContainerService.HintSize="716,2909" sap2010:WorkflowViewState.IdRef="TriggerScope_1" SchedulingMode="Sequential">
+          <ui:TriggerScope.Action>
+            <ActivityAction x:TypeArguments="ui:EventInfoTriggerArgs">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="ui:EventInfoTriggerArgs" Name="args" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Event handler" sap:VirtualizedContainerService.HintSize="664,2576" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="x:Boolean" Name="boolFileExists" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[boolFileExists]" sap:VirtualizedContainerService.HintSize="602,115" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[Environment.CurrentDirectory+&quot;\Requests\Request.xlsx&quot;]" PathType="File" />
+                <If Condition="[boolFileExists]" sap:VirtualizedContainerService.HintSize="602,2310" sap2010:WorkflowViewState.IdRef="If_1">
+                  <If.Then>
+                    <Sequence sap:VirtualizedContainerService.HintSize="568,1955" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="x:String" Name="strContact" />
+                        <Variable x:TypeArguments="x:String" Name="strEmail" />
+                        <Variable x:TypeArguments="x:String" Name="strSubject" />
+                        <Variable x:TypeArguments="x:Boolean" Default="False" Name="boolTicketCreated" />
+                        <Variable x:TypeArguments="x:String" Name="strPhone" />
+                        <Variable x:TypeArguments="x:String" Name="strDescription" />
+                      </Sequence.Variables>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="526,85" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;A request is availabe. We will promptly start to create&quot;]" />
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ReadRequests.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="526,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ReadRequests.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InArgument x:TypeArguments="x:String" x:Key="RequestFilePath">[Environment.CurrentDirectory+"\Requests\Request.xlsx"]</InArgument>
+                          <OutArgument x:TypeArguments="x:String" x:Key="ContactName">[strContact]</OutArgument>
+                          <OutArgument x:TypeArguments="x:String" x:Key="Email">[strEmail]</OutArgument>
+                          <OutArgument x:TypeArguments="x:String" x:Key="Subject">[strSubject]</OutArgument>
+                          <OutArgument x:TypeArguments="x:String" x:Key="Phone">[strPhone]</OutArgument>
+                          <OutArgument x:TypeArguments="x:String" x:Key="Description">[strDescription]</OutArgument>
+                        </ui:InvokeWorkflowFile.Arguments>
+                      </ui:InvokeWorkflowFile>
+                      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="526,85" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="[&quot;The client &quot; + strContact + &quot; reachable on the email address &quot; + strEmail + &quot; needs help with &quot; + strSubject]" />
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SaaSAutomation.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="526,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="SaaSAutomation.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InArgument x:TypeArguments="x:String" x:Key="ContactName">[strContact]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="Email">[strEmail]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="Subject">[strSubject]</InArgument>
+                          <OutArgument x:TypeArguments="x:Boolean" x:Key="Successful">[boolTicketCreated]</OutArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="Phone">[strPhone]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="Description">[strDescription]</InArgument>
+                        </ui:InvokeWorkflowFile.Arguments>
+                      </ui:InvokeWorkflowFile>
+                      <If Condition="[boolTicketCreated]" sap:VirtualizedContainerService.HintSize="526,1311" sap2010:WorkflowViewState.IdRef="If_2">
+                        <If.Then>
+                          <Sequence sap:VirtualizedContainerService.HintSize="492,664" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Sequence sap:VirtualizedContainerService.HintSize="450,576" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[Environment.CurrentDirectory+&quot;\Processed\Request_&quot;+Now.ToString(&quot;MM-dd-yyyy_hh_mm_ss&quot;)+&quot;.xlsx&quot;]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="388,159" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="[Environment.CurrentDirectory+&quot;\Requests\Request.xlsx&quot;]" />
+                              <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="388,85" sap2010:WorkflowViewState.IdRef="MessageBox_5" Text="[&quot;Zoho Ticket Created and File Moved to the Processed Folder. Use ALT + S to check for new requests to process.&quot;]" />
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Zoho Ticket Created and File Moved to the Processed Folder. Use ALT + S to check for new requests to process.&quot;]" />
+                            </Sequence>
+                          </Sequence>
+                        </If.Then>
+                        <If.Else>
+                          <Sequence sap:VirtualizedContainerService.HintSize="492,465" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Sequence sap:VirtualizedContainerService.HintSize="450,377" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="388,85" sap2010:WorkflowViewState.IdRef="MessageBox_6" Text="[&quot;Zoho Ticket not created and file is not processed yet. Please check the input request file and Use ALT+s to reprocess the same request&quot;]" />
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[&quot;Zoho Ticket not created and file is not processed yet. Please check the input request file and Use ALT+s to reprocess the same request&quot;]" />
+                            </Sequence>
+                          </Sequence>
+                        </If.Else>
+                      </If>
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence sap:VirtualizedContainerService.HintSize="376,173" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,85" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[&quot;Sorry, there are no requests to process&quot;]" />
+                    </Sequence>
+                  </If.Else>
+                </If>
+              </Sequence>
+            </ActivityAction>
+          </ui:TriggerScope.Action>
+          <ui:TriggerScope.Triggers>
+            <scg:List x:TypeArguments="Activity" Capacity="4">
+              <ui:HotkeyTriggerV2 BlockEvent="False" DisplayName="Hotkey Trigger" Enabled="True" sap:VirtualizedContainerService.HintSize="680,105" sap2010:WorkflowViewState.IdRef="HotkeyTriggerV2_1" Key="s" KeyModifiers="Alt" SchedulingMode="Sequential" TriggerId="d4500251-b6f5-4370-91f9-b4ae6197216e" UseWindowsHotKey="False" />
+            </scg:List>
+          </ui:TriggerScope.Triggers>
+        </ui:TriggerScope>
+      </Sequence>
+    </Parallel>
   </Sequence>
 </Activity>
