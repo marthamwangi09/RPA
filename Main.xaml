@@ -154,18 +154,10 @@
                     <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="526,85" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;A request is availabe. We will promptly start to create&quot;]" />
                     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ReadRequests.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="526,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ReadRequests.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
-                        <InArgument x:TypeArguments="x:String" x:Key="RequestFilePath">
-                          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Environment.CurrentDirectory+&quot;\Requests\Request.xlsx&quot;" />
-                        </InArgument>
-                        <OutArgument x:TypeArguments="x:String" x:Key="ContactName">
-                          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="strContact" />
-                        </OutArgument>
-                        <OutArgument x:TypeArguments="x:String" x:Key="Email">
-                          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="strEmail" />
-                        </OutArgument>
-                        <OutArgument x:TypeArguments="x:String" x:Key="Subject">
-                          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="strSubject" />
-                        </OutArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="RequestFilePath">[Environment.CurrentDirectory+"\Requests\Request.xlsx"]</InArgument>
+                        <OutArgument x:TypeArguments="x:String" x:Key="ContactName">[strContact]</OutArgument>
+                        <OutArgument x:TypeArguments="x:String" x:Key="Email">[strEmail]</OutArgument>
+                        <OutArgument x:TypeArguments="x:String" x:Key="Subject">[strSubject]</OutArgument>
                         <OutArgument x:TypeArguments="x:String" x:Key="Phone">[strPhone]</OutArgument>
                         <OutArgument x:TypeArguments="x:String" x:Key="Description">[strDescription]</OutArgument>
                       </ui:InvokeWorkflowFile.Arguments>
@@ -173,18 +165,10 @@
                     <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="526,85" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="[&quot;The client &quot; + strContact + &quot; reachable on the email address &quot; + strEmail + &quot; needs help with &quot; + strSubject]" />
                     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SaaSAutomation.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="526,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="SaaSAutomation.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
-                        <InArgument x:TypeArguments="x:String" x:Key="ContactName">
-                          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strContact" />
-                        </InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="Email">
-                          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strEmail" />
-                        </InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="Subject">
-                          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strSubject" />
-                        </InArgument>
-                        <OutArgument x:TypeArguments="x:Boolean" x:Key="Successful">
-                          <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="boolTicketCreated" />
-                        </OutArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="ContactName">[strContact]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="Email">[strEmail]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="Subject">[strSubject]</InArgument>
+                        <OutArgument x:TypeArguments="x:Boolean" x:Key="Successful">[boolTicketCreated]</OutArgument>
                         <InArgument x:TypeArguments="x:String" x:Key="Phone">[strPhone]</InArgument>
                         <InArgument x:TypeArguments="x:String" x:Key="Description">[strDescription]</InArgument>
                       </ui:InvokeWorkflowFile.Arguments>
@@ -203,7 +187,7 @@
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[Environment.CurrentDirectory+&quot;\Processed\Request.xlsx&quot;]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="388,159" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="[Environment.CurrentDirectory+&quot;\Requests\Request.xlsx&quot;]" />
+                            <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[Environment.CurrentDirectory+&quot;\Processed\Request_&quot;+Now.ToString(&quot;MM-dd-yyyy_hh_mm_ss&quot;)+&quot;.xlsx&quot;]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="388,159" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="[Environment.CurrentDirectory+&quot;\Requests\Request.xlsx&quot;]" />
                             <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="388,85" sap2010:WorkflowViewState.IdRef="MessageBox_5" Text="[&quot;Zoho Ticket Created and File Moved to the Processed Folder. Use ALT + S to check for new requests to process.&quot;]" />
                             <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Zoho Ticket Created and File Moved to the Processed Folder. Use ALT + S to check for new requests to process.&quot;]" />
                           </Sequence>
