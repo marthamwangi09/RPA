@@ -1,0 +1,62 @@
+{
+  "Workflows": [
+    {
+      "Path": null,
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Main.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "strDescription&Sequence_3",
+        "strPhone&Sequence_3",
+        "boolFileExists&Sequence_2",
+        "strContact&Sequence_3",
+        "strEmail&Sequence_3",
+        "strSubject&Sequence_3",
+        "boolTicketCreated&Sequence_3"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "ReadRequests.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dtRequest&Sequence_2"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "Description",
+        "Phone",
+        "RequestFilePath",
+        "ContactName",
+        "Email",
+        "Subject"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "SaaSAutomation.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "SaaSBrowser&TryCatch_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "Description",
+        "Phone",
+        "ContactName",
+        "Email",
+        "Subject",
+        "Successful"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    }
+  ]
+}
